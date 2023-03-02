@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Mission9__stevenf4.Models;
+using Mission9__stevenf4.Models.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,11 +17,28 @@ namespace Mission9__stevenf4.Controllers
             repo = temp;
         }
        
-        public IActionResult Index()
+        public IActionResult Index(int pageNum = 1)
         {
-            var blah = repo.Books.ToList();
+            int pageSize = 10;
 
-            return View();
+            var x = new BooksViewModel
+            {
+                Books = repo.Books
+                .OrderBy(prop => prop.Title)
+                .Skip((pageNum - 1) * pageSize)
+                .Take(pageSize),
+
+                PageInfo = new PageInfo
+                {
+                    TotalNumBooks = repo.Books.Count(),
+                    BooksPerPage = pageSize,
+                    CurrentPage = pageNum
+                }
+            };
+
+
+
+            return View(x);
         }
     }
 }

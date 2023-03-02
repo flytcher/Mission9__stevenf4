@@ -52,6 +52,7 @@ namespace Mission9__stevenf4
 
             app.UseEndpoints(endpoints =>
             {
+
                 endpoints.MapDefaultControllerRoute();
             });
         }
