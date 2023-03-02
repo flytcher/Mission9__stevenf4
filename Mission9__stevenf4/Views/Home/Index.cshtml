@@ -1,0 +1,13 @@
+﻿@{
+}
+
+@model List<Book>
+
+@foreach (Book b in Model)
+{
+    <h3>@b.Title</h3>
+
+    <ul>
+        <li>@b.Author</li>
+    </ul>
+}
