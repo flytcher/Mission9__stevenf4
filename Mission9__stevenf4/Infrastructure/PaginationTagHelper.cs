@@ -48,6 +48,7 @@ namespace Mission9__stevenf4.Infrastructure
                 TagBuilder tb = new TagBuilder("a");
 
                 tb.Attributes["href"] = uh.Action(PageAction, new { pageNum = i });
+                tb.AddCssClass(PageClass);
                 if (PageClassesEnabled)
                 {
                     tb.AddCssClass(PageClass);
