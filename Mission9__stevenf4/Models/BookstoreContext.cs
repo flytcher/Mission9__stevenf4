@@ -20,6 +20,7 @@ namespace Mission9__stevenf4.Models
         }
 
         public DbSet<Book> Books { get; set; }
+        public DbSet<Purchase> Purchases { get; set; }
 
     }
 }

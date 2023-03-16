@@ -35,6 +35,7 @@ namespace Mission9__stevenf4
             });
 
             services.AddScoped<IBookRepository, EFBookRepository>();
+            services.AddScoped<IPurchaseRepository, EFPurchaseRepository>();
 
             services.AddRazorPages();
 
