@@ -18,8 +18,23 @@
     @*<link href="C:\Users\stevenfletcher\source\repos\Mission9__stevenf4\Mission9__stevenf4\lib\twitter-bootstrap\bootstrap.min.css" rel="stylesheet" />*@
     @*<link href="C:\Users\stevenfletcher\source\repos\Mission9__stevenf4\Mission9__stevenf4\lib\twitter-bootstrap\css\bootstrap.min.css" rel="stylesheet" />*@
     <link href="/lib/twitter-bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    @*Library for the cart icon*@
+    <link href="/lib/font-awesome/css/all.min.css" rel="stylesheet" />
 </head>
+
+@*Cart Icon*@
 <body>
+    <div class="bg-dark text-white p-2">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col navbar-brand">SPORTS STORE</div>
+                <div class="col-6 text-right">
+                    <vc:cart-summary />
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="bg-dark text-white p-2">
         <span class="navbar-brand ml-2">Bookstore</span>
     </div>

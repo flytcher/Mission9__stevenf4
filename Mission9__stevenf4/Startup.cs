@@ -41,6 +41,11 @@ namespace Mission9__stevenf4
 
             services.AddDistributedMemoryCache();
             services.AddSession();
+
+
+            //services for the session
+            services.AddScoped<ShoppingCart>(x => SessionCart.GetCart(x));
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

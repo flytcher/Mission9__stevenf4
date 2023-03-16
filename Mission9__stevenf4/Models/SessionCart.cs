@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.DependencyInjection;
 using Mission9__stevenf4.Infrastructure;
 using System;
 using System.Collections.Generic;
@@ -7,9 +8,22 @@ using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace Mission9__stevenf4.Models
+//Model for a users current session on the website
 {
     public class SessionCart : ShoppingCart
     {
+
+        public static ShoppingCart GetCart (IServiceProvider services)
+        {
+            ISession session = services.GetRequiredService<IHttpContextAccessor>()?.HttpContext.Session;
+
+            SessionCart cart = session?.GetJson<SessionCart>("Cart") ?? new SessionCart();
+
+            cart.Session = session;
+
+            return cart;
+        }
+
         [JsonIgnore]
         public ISession Session { get; set; }
 
@@ -25,9 +39,9 @@ namespace Mission9__stevenf4.Models
             Session.SetJson("Cart", this);
         }
 
-        public override void ClearBasket()
+        public override void ClearCart()
         {
-            base.ClearBasket();
+            base.ClearCart();
             Session.Remove("Cart");
         }
 

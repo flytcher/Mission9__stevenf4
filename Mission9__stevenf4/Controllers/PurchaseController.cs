@@ -36,6 +36,12 @@ namespace Mission9__stevenf4.Controllers
                 purchase.Lines = cart.Items.ToArray();
                 repo.SavePurchase(purchase);
                 cart.ClearCart();
+
+                return RedirectToPage("/CheckoutSuccess");
+            }
+            else
+            {
+                return View();
             }
         }
     }

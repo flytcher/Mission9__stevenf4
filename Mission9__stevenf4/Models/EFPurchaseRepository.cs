@@ -16,6 +16,7 @@ namespace Mission9__stevenf4.Models
 
         public IQueryable<Purchase> Purchases => context.Purchases.Include(x => x.Lines).ThenInclude(x => x.Book);
 
+        //Saving the purchase to the db
         public void SavePurchase(Purchase purchase)
         {
             context.AttachRange(purchase.Lines.Select(x => x.Book));
